@@ -3,6 +3,7 @@ import { version } from "../package.json";
 import type { BunFig, Manifest } from "./bunfig";
 
 interface CLIOptions {
+  access?: string;
   tag?: string;
 }
 
@@ -14,6 +15,7 @@ const getCLIOptions = (): CLIOptions => {
 
   program
     .addOption(new Option("-t, --tag <string>", "tag to be used for the version").default("latest"))
+    .addOption(new Option("-a, --access <string>", "access level for the package").default("public"));
 
   return program.parse().opts();
 }
@@ -33,7 +35,7 @@ export const getClientOptions = (bunFig: BunFig, m: Manifest) => {
   const opts = getCLIOptions();
 
   return {
-    access: publishConfig.access ?? "public",
+    access: publishConfig.access ?? opts.access ?? "public",
     registry: registry,
     defaultTag: opts.tag,
     // https://github.com/npm/cli/issues/4250#issuecomment-976602325
