@@ -1,6 +1,6 @@
 # Bun Publish
 
-publish packages to npm registry with [Bun](https://bun.sh/)
+Publish packages to npm registry with [Bun](https://bun.sh/)
 
 ## Usage
 
@@ -21,3 +21,8 @@ bunx @morlay/bunpublish
     * `postpack`
     * `publish`
     * `postpublish`
+
+## CLI Options:
+
+* `--tag` publish with tag, default is `latest`
+* `--access` publish with access, default is `public`
