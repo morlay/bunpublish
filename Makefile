@@ -13,7 +13,7 @@ test:
 fmt:
 	$(BUNX) prettier --write .
 
-pub: install
+pub:
 	$(BUNX) @morlay/bunpublish
 
 install:

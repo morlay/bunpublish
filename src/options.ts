@@ -18,7 +18,7 @@ const getCLIOptions = (): CLIOptions => {
     .addOption(new Option("-a, --access <string>", "access level for the package").default("public"));
 
   return program.parse().opts();
-}
+};
 
 export const getClientOptions = (bunFig: BunFig, m: Manifest) => {
   const reg = bunFig.pickRegistry(m.name);
