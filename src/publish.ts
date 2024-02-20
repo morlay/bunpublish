@@ -1,10 +1,11 @@
-import { tarball, manifest } from "pacote";
-import npmFetch from "npm-registry-fetch";
 import { publish as npmPublish } from "libnpmpublish";
+import { default as npmFetch } from "npm-registry-fetch";
+import { manifest, tarball } from "pacote";
 // @ts-ignore
 import { Arborist } from "@npmcli/arborist";
 import type { BunFig, Manifest } from "./bunfig";
-import type { Logger } from "./log.ts";
+import type { Logger } from "./log";
+import { getClientOptions } from "./options";
 
 const runScript = async (name: string, { cwd, logger }: { cwd: string, logger: Logger }): Promise<number> => {
   logger = logger.withName(name);
@@ -37,30 +38,6 @@ const runScript = async (name: string, { cwd, logger }: { cwd: string, logger: L
 const isPrivate = (manifest: Manifest) => {
   return manifest["private"] == true;
 };
-
-
-const getClientOptions = (bunFig: BunFig, m: Manifest) => {
-  const reg = bunFig.pickRegistry(m.name);
-
-  // https://docs.npmjs.com/cli/v10/configuring-npm/package-json#publishconfig
-  const publishConfig = (m["publishConfig"] ?? {}) as {
-    access?: string,
-    registry?: string,
-  };
-
-  const registry = publishConfig.registry ?? reg;
-  const token = bunFig.tokenFor(registry);
-
-  return {
-    access: publishConfig.access ?? "public",
-    registry: registry,
-    // https://github.com/npm/cli/issues/4250#issuecomment-976602325
-    forceAuth: {
-      token: token
-    }
-  };
-};
-
 
 const isPublished = async (manifest: Manifest, {
   options,

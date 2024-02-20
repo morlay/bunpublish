@@ -1,5 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
+  "include": [
+    "src",
+    "package.json"
+  ],
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "./dist",
@@ -25,7 +29,7 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
-    "noPropertyAccessFromIndexSignature": true,
+    "noPropertyAccessFromIndexSignature": false,
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
