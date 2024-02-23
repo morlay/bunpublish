@@ -7,7 +7,7 @@ interface CLIOptions {
   tag?: string;
 }
 
-const getCLIOptions = (): CLIOptions => {
+const _getCLIOptions = (): CLIOptions => {
   program
     .name("bunpublish")
     .description("CLI script for publishing npm packages with Bun")
@@ -18,6 +18,12 @@ const getCLIOptions = (): CLIOptions => {
     .addOption(new Option("-a, --access <string>", "access level for the package").default("public"));
 
   return program.parse().opts();
+};
+
+let _cliOptions: CLIOptions;
+
+export const getCLIOptions = () => {
+  return _cliOptions ??= _getCLIOptions();
 };
 
 export const getClientOptions = (bunFig: BunFig, m: Manifest) => {
