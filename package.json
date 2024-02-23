@@ -1,6 +1,6 @@
 {
   "name": "@morlay/bunpublish",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "type": "module",
   "license": "MIT",
   "description": "Publish packages to npm registry with [Bun](https://bun.sh/)",
