@@ -5,6 +5,7 @@ import type { BunFig, Manifest } from "./bunfig";
 interface CLIOptions {
   access?: string;
   tag?: string;
+  provenance?: boolean;
 }
 
 const _getCLIOptions = (): CLIOptions => {
@@ -15,7 +16,8 @@ const _getCLIOptions = (): CLIOptions => {
 
   program
     .addOption(new Option("-t, --tag <string>", "tag to be used for the version").default("latest"))
-    .addOption(new Option("-a, --access <string>", "access level for the package").default("public"));
+    .addOption(new Option("-a, --access <string>", "access level for the package").default("public"))
+    .addOption(new Option("-p, --provenance", "when running in a supported CI environment, will trigger the generation of a signed provenance statement to be published alongside the package"));
 
   return program.parse().opts();
 };
@@ -44,6 +46,7 @@ export const getClientOptions = (bunFig: BunFig, m: Manifest) => {
     access: publishConfig.access ?? opts.access ?? "public",
     registry: registry,
     defaultTag: opts.tag,
+    provenance: opts.provenance,
     // https://github.com/npm/cli/issues/4250#issuecomment-976602325
     forceAuth: {
       token: token
