@@ -21,7 +21,7 @@
     "globby": "^14.0.1",
     "libnpmpublish": "^9.0.4",
     "npm-registry-fetch": "^16.1.0",
-    "pacote": "^17.0.6"
+    "pacote": "^18.0.0"
   },
   "devDependencies": {
     "@types/bun": "^1.0.6",
