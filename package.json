@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@types/bun": "^1.1.1",
-    "@types/libnpmpublish": "^4.0.6",
+    "@types/libnpmpublish": "^9.0.0",
     "@types/pacote": "^11.1.8",
     "bun-types": "^1.1.7",
     "prettier": "^3.2.5",
