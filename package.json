@@ -20,7 +20,7 @@
     "commander": "^12.0.0",
     "globby": "^14.0.1",
     "libnpmpublish": "^9.0.7",
-    "npm-registry-fetch": "^16.2.1",
+    "npm-registry-fetch": "^17.0.1",
     "pacote": "^17.0.7"
   },
   "devDependencies": {
