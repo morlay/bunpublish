@@ -5,7 +5,7 @@ dep:
 	$(BUN) install
 
 dep.update:
-	$(BUNX) npm-check-updates -ui
+	$(BUNX) taze -w
 
 test:
 	$(BUN) test
@@ -17,4 +17,5 @@ pub:
 	$(BUNX) @morlay/bunpublish
 
 install:
+	rm -rf ~/.bun/bin/bunpublish
 	$(BUN) link

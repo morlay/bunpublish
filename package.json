@@ -1,6 +1,6 @@
 {
   "name": "@morlay/bunpublish",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "type": "module",
   "license": "MIT",
   "description": "Publish packages to npm registry with [Bun](https://bun.sh/)",
@@ -15,21 +15,21 @@
     "bun": ">=1"
   },
   "dependencies": {
-    "@npmcli/arborist": "^7.3.1",
+    "@npmcli/arborist": "^7.5.1",
     "chalk": "^5.3.0",
     "commander": "^12.0.0",
     "globby": "^14.0.1",
-    "libnpmpublish": "^9.0.4",
-    "npm-registry-fetch": "^16.1.0",
-    "pacote": "^17.0.6"
+    "libnpmpublish": "^9.0.7",
+    "npm-registry-fetch": "^16.2.1",
+    "pacote": "^17.0.7"
   },
   "devDependencies": {
-    "@types/bun": "^1.0.6",
+    "@types/bun": "^1.1.1",
     "@types/libnpmpublish": "^4.0.6",
     "@types/pacote": "^11.1.8",
-    "bun-types": "^1.0.28",
+    "bun-types": "^1.1.7",
     "prettier": "^3.2.5",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.5"
   },
   "bin": {
     "bunpublish": "bin/index.ts"
